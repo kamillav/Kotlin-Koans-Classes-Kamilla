@@ -30,18 +30,22 @@ class Num(val value: Int) : Expr
 class Sum(val left: Expr, val right: Expr) : Expr
 
 // Sealed classes
-fun eval(expr: Expr): Int =
-    when (expr) {
+fun eval(expr: Expr): Int {
+    return when (expr) {
         is Num -> expr.value
         is Sum -> eval(expr.left) + eval(expr.right)
+        else -> {
+            throw IllegalArgumentException("Unknown expression")
+        }
     }
+}
 
 
 fun useDifferentRandomClasses(): String {
     return "Kotlin random: " +
-             KRandom.nextInt(2) +
+            KRandom.nextInt(2) +
             " Java random:" +
-             JRandom().nextInt(2) +
+            JRandom().nextInt(2) +
             "."
 }
 

@@ -11,6 +11,13 @@ package edu.trincoll.hr
 //
 // It should override the toString method to return a string with the
 // name, id, and salary of the employee.
-class Salaried(
-) {
+
+class Salaried (name: String, id: Int, val salary: Double) : Employee(name, id) {
+    override fun pay(): Double {
+        return salary / 26.0
+    }
+
+    override fun toString(): String {
+        return "Salaried(name=$name, id=$id, salary=$salary)"
+    }
 }

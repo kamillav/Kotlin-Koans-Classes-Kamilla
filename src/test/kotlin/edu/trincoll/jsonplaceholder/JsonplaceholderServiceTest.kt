@@ -1,7 +1,8 @@
+
 package edu.trincoll.jsonplaceholder
 
-import io.ktor.client.call.body
-import io.ktor.http.isSuccess
+import io.ktor.client.call.*
+import io.ktor.http.*
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
@@ -11,7 +12,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class JsonplaceholderServiceTest {
-    private val service = JsonplaceholderService()
+    private val service = JsonPlaceholderService()
 
     @Test
     fun `all posts`() {
